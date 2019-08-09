@@ -88,9 +88,9 @@ clubs.each do |club|
 end
 
 Club.all.each do |club|
-  SportField.create(name: "SportField #1", description: "Soccer 5vs5", price_day: 20, price_night: 40, club_id: club.id)
-  SportField.create(name: "SportField #2", description: "Soccer 6vs6", price_day: 30, price_night: 60, club_id: club.id)
-  SportField.create(name: "SportField #3", description: "Soccer 5vs5", price_day: 20, price_night: 40, club_id: club.id)
+  SportField.create(name: "SportField #1", description: "Soccer 5vs5", price_day: 20, price_night: 40, club_id: club.id, image: get_image('sport_1.jpg'))
+  SportField.create(name: "SportField #2", description: "Soccer 6vs6", price_day: 30, price_night: 60, club_id: club.id, image: get_image('sport_2.jpg'))
+  SportField.create(name: "SportField #3", description: "Soccer 5vs5", price_day: 20, price_night: 40, club_id: club.id, image: get_image('sport_3.jpg'))
 end
 
 regular_user.favorite(Club.first)
