@@ -89,16 +89,24 @@ end
 
 Club.all.each do |club|
   SportField.create(name: "SportField #1", description: "Soccer 5vs5", price_day: 20, price_night: 40, club_id: club.id, image: get_image('sport_1.jpg'))
-  SportField.create(name: "SportField #2", description: "Soccer 6vs6", price_day: 30, price_night: 60, club_id: club.id, image: get_image('sport_2.jpg'))
+  SportField.create(name: "SportField #2", description: "Soccer 6vs6", price_day: 30, price_night: 50, club_id: club.id, image: get_image('sport_2.jpg'))
   SportField.create(name: "SportField #3", description: "Soccer 5vs5", price_day: 20, price_night: 40, club_id: club.id, image: get_image('sport_3.jpg'))
 end
 
 regular_user.favorite(Club.first)
 regular_user.favorite(Club.last)
 
-regular_user.bookings.create(date: Time.now, start_hour: 14, end_hour: 15, amount: 100, sport_field_id: rand(SportField.all.size))
-regular_user.bookings.create(date: Time.now, start_hour: 15, end_hour: 16, amount: 100, sport_field_id: rand(SportField.all.size))
-regular_user.bookings.create(date: Time.now, start_hour: 16, end_hour: 17, amount: 100, sport_field_id: rand(SportField.all.size))
-regular_user.bookings.create(date: Time.now, start_hour: 17, end_hour: 18, amount: 100, sport_field_id: rand(SportField.all.size))
-regular_user.bookings.create(date: Time.now, start_hour: 15, end_hour: 16, amount: 200, sport_field_id: rand(SportField.all.size))
-regular_user.bookings.create(date: Time.now, start_hour: 16, end_hour: 17, amount: 300, sport_field_id: rand(SportField.all.size))
+regular_user.bookings.create(date: Time.now - 5, start_hour: 10, end_hour: 11, amount: 20, sport_field_id: SportField.first.id)
+regular_user.bookings.create(date: Time.now + 1, start_hour: 14, end_hour: 15, amount: 20, sport_field_id: SportField.first.id)
+regular_user.bookings.create(date: Time.now + 3, start_hour: 16, end_hour: 17, amount: 20, sport_field_id: SportField.first.id)
+regular_user.bookings.create(date: Time.now + 3, start_hour: 18, end_hour: 19, amount: 40, sport_field_id: SportField.first.id)
+regular_user.bookings.create(date: Time.now + 3, start_hour: 20, end_hour: 21, amount: 40, sport_field_id: SportField.first.id)
+
+regular_user.bookings.create(date: Time.now - 1, start_hour: 14, end_hour: 15, amount: 30, sport_field_id: SportField.second.id)
+regular_user.bookings.create(date: Time.now + 1, start_hour: 15, end_hour: 16, amount: 30, sport_field_id: SportField.second.id)
+regular_user.bookings.create(date: Time.now + 2, start_hour: 16, end_hour: 17, amount: 30, sport_field_id: SportField.second.id)
+regular_user.bookings.create(date: Time.now + 2, start_hour: 18, end_hour: 19, amount: 50, sport_field_id: SportField.second.id)
+regular_user.bookings.create(date: Time.now + 4, start_hour: 20, end_hour: 21, amount: 50, sport_field_id: SportField.second.id)
+
+regular_user.bookings.create(date: Time.now - 1, start_hour: 14, end_hour: 15, amount: 20, sport_field_id: SportField.third.id)
+regular_user.bookings.create(date: Time.now + 1, start_hour: 20, end_hour: 21, amount: 40, sport_field_id: SportField.third.id)

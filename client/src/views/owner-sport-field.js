@@ -93,7 +93,7 @@ function OwnerSportField({ id }) {
     const booking = bookings.find(booking => {
       return booking.start_hour <= hour && booking.end_hour > hour;
     });
-    return booking ? booking.id : "";
+    return booking ? "Booked ⚽" : "";
   }
 
   // selectedDate = new Date().toLocaleDateString("en-CA");
