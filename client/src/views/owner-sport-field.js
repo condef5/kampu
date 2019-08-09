@@ -5,8 +5,10 @@ import { navigate } from "@reach/router";
 import { scheduleBooking } from "../services/sport-field";
 import { Button } from "../components/ui";
 import { Link } from "@reach/router";
+import Spinner from "../components/spinner";
 
 function OwnerSportField({ id }) {
+  const [loading, setLoading] = React.useState(false);
   const [selectedDate, setSelectedDate] = React.useState(
     new Date().toLocaleDateString("en-CA")
   );
@@ -45,24 +47,25 @@ function OwnerSportField({ id }) {
     borderCollapse: "collapse",
     border: "none",
     borderRadius: "3px",
-    background: "#52be7f"
+    minWidth: "300px"
   };
 
   const styleTh = {
     fontWeight: "normal",
-    padding: "1em",
-    color: "rgba(0,0,0,0.45)",
-    textShadow: "0 0 1px rgba(0,0,0,0.1)",
+    background: "#343a40",
+    padding: ".75em",
+    color: "#fff",
     fontSize: "calc(0.8em + 1vw)",
-    boxShadow: "inset 0 -1px rgba(0,0,0,0.25), inset 0 1px rgba(0,0,0,0.25)"
+    borderTop: "2px solid #454d55",
+    borderBottom: "2px solid #454d55"
   };
 
   const styleTd = {
-    color: "#f7f7f7",
+    color: "inherit",
     padding: "0.7em 1em 0.7em 1.15em",
     textShadow: "0 0 1px rgba(255,255,255,0.1)",
     fontSize: "calc(0.5em + 1vw)",
-    boxShadow: "inset 0 -1px rgba(0,0,0,0.25), inset 0 1px rgba(0,0,0,0.25)"
+    borderTop: "1px solid #dee2e6"
   };
 
   const styleTr = {
@@ -72,12 +75,14 @@ function OwnerSportField({ id }) {
   };
 
   React.useEffect(() => {
+    setLoading(true);
     scheduleBooking(id, selectedDate).then(({ bookings, club }) => {
       const str = gethours(club["schedule"], new Date(selectedDate).getDay());
       setRange({
         start: parseInt(str.start),
         end: parseInt(str.end)
       });
+      setLoading(false);
       console.log(bookings);
       setBookings(bookings);
     });
@@ -95,8 +100,6 @@ function OwnerSportField({ id }) {
     });
     return booking ? "Booked ⚽" : "";
   }
-
-  // selectedDate = new Date().toLocaleDateString("en-CA");
 
   function handleSelectedDate(e) {
     setSelectedDate(e.target.value);
@@ -138,6 +141,24 @@ function OwnerSportField({ id }) {
           </Button>
         </Link>
       </div>
+      {loading && (
+        <div
+          css={{
+            height: "100vh",
+            position: "fixed",
+            width: "100%",
+            background: "#ffffffad",
+            top: "0",
+            left: "0",
+            zIndex: "10000",
+            display: "flex",
+            alignItems: "center",
+            transition: "all .3s"
+          }}
+        >
+          <Spinner />
+        </div>
+      )}
       <table css={styleTable}>
         <thead>
           <tr>

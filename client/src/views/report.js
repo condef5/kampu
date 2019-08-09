@@ -31,24 +31,25 @@ function Report({ id }) {
     borderCollapse: "collapse",
     border: "none",
     borderRadius: "3px",
-    background: "#52be7f"
+    minWidth: "300px"
   };
 
   const styleTh = {
     fontWeight: "normal",
-    padding: "1em",
-    color: "rgba(0,0,0,0.45)",
-    textShadow: "0 0 1px rgba(0,0,0,0.1)",
+    background: "#343a40",
+    padding: ".75em",
+    color: "#fff",
     fontSize: "calc(0.8em + 1vw)",
-    boxShadow: "inset 0 -1px rgba(0,0,0,0.25), inset 0 1px rgba(0,0,0,0.25)"
+    borderTop: "2px solid #454d55",
+    borderBottom: "2px solid #454d55"
   };
 
   const styleTd = {
-    color: "#f7f7f7",
+    color: "inherit",
     padding: "0.7em 1em 0.7em 1.15em",
     textShadow: "0 0 1px rgba(255,255,255,0.1)",
     fontSize: "calc(0.5em + 1vw)",
-    boxShadow: "inset 0 -1px rgba(0,0,0,0.25), inset 0 1px rgba(0,0,0,0.25)"
+    borderTop: "1px solid #dee2e6"
   };
 
   const styleTr = {
