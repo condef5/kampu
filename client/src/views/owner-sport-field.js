@@ -142,7 +142,7 @@ function OwnerSportField({ id }) {
         <thead>
           <tr>
             <th css={styleTh}>Time</th>
-            <th css={styleTh}>Customer Id</th>
+            <th css={styleTh}>Status</th>
           </tr>
         </thead>
         <tbody>
