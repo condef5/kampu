@@ -298,7 +298,7 @@ function Text({ styles, ...props }) {
       {...props}
       css={{
         display: "block",
-        fontWeight: "300",
+        fontWeight: "400",
         padding: "0 8px 8px 0",
         fontSize: "16px",
         lineHeight: "24px",

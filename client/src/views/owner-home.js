@@ -90,9 +90,8 @@ function OwnerHome() {
               return (
                 <OwnerSportFieldCard
                   key={sportField.id}
-                  name={sportField.name}
                   progressStatus={progress}
-                  id={sportField.id}
+                  {...sportField}
                 />
               );
             })

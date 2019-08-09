@@ -16,7 +16,7 @@ function Clubs({ id }) {
   }, [id]);
 
   const styleTitle = {
-    fontSize: "0.8em"
+    color: "#07bcc1"
   };
 
   return (
@@ -35,7 +35,7 @@ function Clubs({ id }) {
       >
         <div>
           <Title css={styleTitle}>Address</Title>
-          <Text css={{ fontSize: "12px" }}>{club.address}</Text>
+          <Text css={{ fontSize: "14px" }}>{club.address}</Text>
         </div>
 
         <br />
@@ -43,24 +43,24 @@ function Clubs({ id }) {
         <div>
           <Title css={styleTitle}>Schedule</Title>
           <div css={{ display: "flex", justifyContent: "space-between" }}>
-            <Text css={{ fontSize: "12px" }}>Monday - Friday</Text>
-            <Text css={{ fontSize: "12px" }}>
+            <Text css={{ fontSize: "14px" }}>Monday - Friday</Text>
+            <Text css={{ fontSize: "14px" }}>
               {club.schedule && club.schedule["monday-friday"].start} -{" "}
               {club.schedule && club.schedule["monday-friday"].end}
             </Text>
           </div>
 
           <div css={{ display: "flex", justifyContent: "space-between" }}>
-            <Text css={{ fontSize: "12px" }}>Saturday</Text>
-            <Text css={{ fontSize: "12px" }}>
+            <Text css={{ fontSize: "14px" }}>Saturday</Text>
+            <Text css={{ fontSize: "14px" }}>
               {club.schedule && club.schedule["saturday"].start} -{" "}
               {club.schedule && club.schedule["saturday"].end}
             </Text>
           </div>
 
           <div css={{ display: "flex", justifyContent: "space-between" }}>
-            <Text css={{ fontSize: "12px" }}>Sunday</Text>
-            <Text css={{ fontSize: "12px" }}>
+            <Text css={{ fontSize: "14px" }}>Sunday</Text>
+            <Text css={{ fontSize: "14px" }}>
               {club.schedule && club.schedule["sunday"].start} -{" "}
               {club.schedule && club.schedule["sunday"].end}
             </Text>

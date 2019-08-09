@@ -6,6 +6,7 @@ import { SecondaryButton } from "./ui";
 import { useSetNotify } from "../actions/action-hooks";
 import { formatHour } from "../utils";
 import { ChevronLeft, ChevronRight } from "./icons";
+import Spinner from "../components/spinner";
 
 function ArrowButton({ styles, ...props }) {
   return (
@@ -197,7 +198,24 @@ function Calendar({
           }
         }}
       >
-        <div>{loading && "cargando..."}</div>
+        {loading && (
+          <div
+            css={{
+              height: "100vh",
+              position: "fixed",
+              width: "100%",
+              background: "#ffffffad",
+              top: "0",
+              left: "0",
+              zIndex: "10000",
+              display: "flex",
+              alignItems: "center",
+              transition: "all .3s"
+            }}
+          >
+            <Spinner />
+          </div>
+        )}
         <div
           css={{
             display: "flex",

@@ -20,7 +20,6 @@ function SportfieldInfo({ sportField }) {
     >
       <Card>
         <Text css={{ textAlign: "center" }}> {sportField.name}</Text>
-
         <Text css={{ display: "flex", justifyContent: "center" }}>
           <Text>
             <Ball css={{ width: "20px", height: "20px" }} />

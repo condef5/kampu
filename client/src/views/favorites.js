@@ -5,6 +5,7 @@ import { getFavoriteClubs } from "../services/club";
 import { useClubsFavorites } from "../selectors/selectors";
 import { useSetClubsFavorites } from "../actions/action-hooks";
 import Club from "../components/club";
+import Spinner from "../components/spinner";
 
 function Home() {
   const [loading, setLoading] = React.useState(false);
@@ -22,7 +23,7 @@ function Home() {
   return (
     <div>
       <h2>Favorites Clubs</h2>
-      {loading && <div>Loading</div>}
+      {loading && <Spinner />}
       <div
         css={{
           display: "flex",
